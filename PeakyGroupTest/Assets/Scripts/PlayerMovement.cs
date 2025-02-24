@@ -1,5 +1,6 @@
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,13 +9,17 @@ public class PlayerMovement : MonoBehaviour
 
     private CharacterController characterController;
 
-    private float rotationSmoothing = .05f;
+    private float rotationSmoothing = .2f;
 
-    private float horizontalInput;
-    private float verticalInput;
+    private Vector2 move;
 
     //boundarie variables
     private float maxXpos, minXpos, maxZpos, minZpos;
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        move = context.ReadValue<Vector2>();
+    }
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -23,9 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        GetInput();
-
-        Vector3 movement = new Vector3 (horizontalInput, 0f, verticalInput).normalized;
+        Vector3 movement = new Vector3 (move.x, 0f, move.y).normalized;
 
         if(movement != Vector3.zero)
         {
@@ -36,13 +39,6 @@ public class PlayerMovement : MonoBehaviour
 
         SetMovementBoundaries();
     }
-
-    private void GetInput()
-    {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
-    }
-
     private void SetMovementBoundaries()
     {
         //Sets movement boundaries
