@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     private CharacterController characterController;
 
-    private float rotationSmoothing = .2f;
+    private float rotationSmoothing = .025f;
 
     private Vector2 move;
 
