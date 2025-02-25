@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour
@@ -30,9 +31,38 @@ public class ItemSpawner : MonoBehaviour
             return;
         }
 
-        Vector3 randomSpawnPos = new Vector3(Random.Range(-spawnArea / 2f, spawnArea / 2f), 1f, Random.Range(-spawnArea / 2f, spawnArea / 2f));
+        Vector3 randomSpawnPos = Vector3.zero;
+        bool foundGoodPos = false;
 
-        GameObject itemPrefab = items[Random.Range(0, items.Length)];
-        Instantiate(itemPrefab, randomSpawnPos, Quaternion.identity);
+        for(int i = 0; i < 10; i++)
+        {
+            randomSpawnPos = new Vector3(Random.Range(-spawnArea / 2f, spawnArea / 2f), 1f, Random.Range(-spawnArea / 2f, spawnArea / 2f));
+            if (IsSpawnPositionGood(randomSpawnPos))
+            {
+                foundGoodPos = true;
+                break;
+            }
+        }
+
+        if (foundGoodPos)
+        {
+            GameObject itemPrefab = items[Random.Range(0, items.Length)];
+            Instantiate(itemPrefab, randomSpawnPos, Quaternion.identity);
+        }
+    }
+
+    private bool IsSpawnPositionGood(Vector3 position, float radius = 2f)
+    {
+        Collider[] colliders = Physics.OverlapSphere(position, radius);
+
+        foreach(Collider collider in colliders)
+        {
+            if(collider.CompareTag("Interactable") || collider.CompareTag("Player"))
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
