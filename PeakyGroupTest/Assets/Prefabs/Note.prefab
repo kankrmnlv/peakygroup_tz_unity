@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3203989669473765296}
   - component: {fileID: 2858221592662673892}
   - component: {fileID: 4193965705575799207}
+  - component: {fileID: 3661289533165225390}
+  - component: {fileID: 3339576368318101468}
   m_Layer: 0
   m_Name: Note
   m_TagString: Untagged
@@ -102,9 +104,38 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3661289533165225390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9063686210093851484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b53e07646a8d9194781dbc976e1b99a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 75
+--- !u!114 &3339576368318101468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9063686210093851484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02044e6b90ffb634d99b5be23f50476e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noteText:
+  - Hello, PeakyGroup! I hope you are enjoying my showcase!
+  - Weather is awesome today!
+  - Game development is very fun!
