@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -5,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed;
+    private float speedMultiplier = 1f;
 
     private CharacterController characterController;
 
@@ -33,9 +35,20 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(movement), turnSpeed * Time.deltaTime * 100f);
         }
 
-        characterController.Move(movement * moveSpeed * Time.deltaTime);
+        characterController.Move(movement * (moveSpeed * speedMultiplier) * Time.deltaTime);
 
         SetMovementBoundaries();
+    }
+
+    public void ApplySpeedBoost(float boostMultiplier, float duration)
+    {
+        StartCoroutine(SpeedBoost(boostMultiplier, duration));
+    }
+    private IEnumerator SpeedBoost(float boostMultiplier, float duration)
+    {
+        speedMultiplier = boostMultiplier;
+        yield return new WaitForSeconds(duration);
+        speedMultiplier = 1f;
     }
     private void SetMovementBoundaries()
     {
