@@ -4,18 +4,16 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //movement
     public float moveSpeed;
 
     private CharacterController characterController;
 
-    private float rotationSmoothing = .025f;
+    private float rotationSmoothing = .1f;
 
     private Vector2 move;
 
     //boundarie variables
     private float maxXpos, minXpos, maxZpos, minZpos;
-
     public void OnMove(InputAction.CallbackContext context)
     {
         move = context.ReadValue<Vector2>();
