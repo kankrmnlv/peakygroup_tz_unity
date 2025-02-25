@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     private CharacterController characterController;
 
-    private float rotationSmoothing = .15f;
+    private float turnSpeed = 7f;
 
     private Vector2 move;
 
@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(movement != Vector3.zero)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), rotationSmoothing);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(movement), turnSpeed * Time.deltaTime * 100f);
         }
 
         characterController.Move(movement * moveSpeed * Time.deltaTime);

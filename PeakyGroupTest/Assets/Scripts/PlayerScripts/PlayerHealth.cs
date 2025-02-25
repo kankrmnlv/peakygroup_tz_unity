@@ -17,5 +17,9 @@ public class PlayerHealth : MonoBehaviour
     {
         currHealth -= damage;
         healthbar.SetHealth(currHealth);
+        if(currHealth <= 0)
+        {
+            GameManager.Instance.GameOver();
+        }
     }
 }
