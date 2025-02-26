@@ -11,6 +11,8 @@ public class Note : Interactable
             NoteManagerUI.Instance.ShowNote(showText);
         }
 
+        ItemSaver.Instance.ItemPickup(gameObject.name);
+
         Destroy(gameObject);
     }
 }

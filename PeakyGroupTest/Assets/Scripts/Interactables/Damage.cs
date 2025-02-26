@@ -7,6 +7,8 @@ public class Damage : Interactable
     {
         player.health.TakeDamage(damageAmount);
 
+        ItemSaver.Instance.ItemPickup(gameObject.name);
+
         Destroy(gameObject);
     }
 }

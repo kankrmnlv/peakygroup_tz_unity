@@ -8,6 +8,8 @@ public class SpeedBonus : Interactable
     {
         player.movement.ApplySpeedBoost(speedMultiplier, duration);
 
+        ItemSaver.Instance.ItemPickup(gameObject.name);
+
         Destroy(gameObject);
     }
 }

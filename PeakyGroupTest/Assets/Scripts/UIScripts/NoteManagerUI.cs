@@ -1,11 +1,8 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 using TMPro;
 
 public class NoteManagerUI : MonoBehaviour
 {
-    private Keyboard keyboard;
-
     public static NoteManagerUI Instance;
 
     public GameObject note;
@@ -21,16 +18,6 @@ public class NoteManagerUI : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }
-
-        keyboard = Keyboard.current;
-    }
-
-    private void Update()
-    {
-        if(note.activeSelf && keyboard.escapeKey.wasPressedThisFrame)
-        {
-            CloseNote();
         }
     }
     public void ShowNote(string text)

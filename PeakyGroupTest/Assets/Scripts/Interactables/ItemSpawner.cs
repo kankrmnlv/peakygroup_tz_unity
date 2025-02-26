@@ -22,7 +22,7 @@ public class ItemSpawner : MonoBehaviour
             Destroy(gameObject);
         }
 
-        InvokeRepeating("SpawnItem", 0f, spawnInterval);
+        InvokeRepeating(nameof(SpawnItem), 0f, spawnInterval);
     }
     private void SpawnItem()
     {
