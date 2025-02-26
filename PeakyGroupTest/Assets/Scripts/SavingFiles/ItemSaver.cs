@@ -17,12 +17,12 @@ public class ItemSaver : MonoBehaviour
         if(Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
-            return;
+            //return;
         }
 
         filePath = Path.Combine(Application.persistentDataPath, "items.txt");

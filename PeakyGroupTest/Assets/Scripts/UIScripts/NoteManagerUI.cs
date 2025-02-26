@@ -7,6 +7,7 @@ public class NoteManagerUI : MonoBehaviour
 
     public GameObject note;
     public TMP_Text noteText;
+
     public PlayerMovement playerMovement;
 
     private void Awake()
