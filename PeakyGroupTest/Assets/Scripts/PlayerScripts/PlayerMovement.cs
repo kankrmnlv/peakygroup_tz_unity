@@ -1,5 +1,4 @@
 using System.Collections;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     //boundarie variables
     private float maxXpos, minXpos, maxZpos, minZpos;
+
     public void OnMove(InputAction.CallbackContext context)
     {
         move = context.ReadValue<Vector2>();
@@ -47,8 +47,11 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator SpeedBoost(float boostMultiplier, float duration)
     {
         speedMultiplier = boostMultiplier;
+        Color startColor = gameObject.GetComponent<Renderer>().material.color;
+        gameObject.GetComponent<Renderer>().material.color = Color.yellow;
         yield return new WaitForSeconds(duration);
         speedMultiplier = 1f;
+        gameObject.GetComponent<Renderer>().material.color = startColor;
     }
     private void SetMovementBoundaries()
     {
