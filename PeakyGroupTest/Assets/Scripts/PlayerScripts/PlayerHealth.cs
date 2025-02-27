@@ -7,6 +7,8 @@ public class PlayerHealth : MonoBehaviour
 
     public HealthbarUI healthbar;
 
+    public DamageScreen damageScreen;
+
     private void Start()
     {
         currHealth = maxHealth;
@@ -17,6 +19,7 @@ public class PlayerHealth : MonoBehaviour
     {
         currHealth -= damage;
         healthbar.SetHealth(currHealth);
+        damageScreen.TriggerFlash();
         if(currHealth <= 0)
         {
             GameManager.Instance.GameOver();
