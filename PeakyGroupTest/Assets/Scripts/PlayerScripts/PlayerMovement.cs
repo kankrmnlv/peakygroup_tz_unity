@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public GameObject speedParticles;
+
     public float moveSpeed;
     private float speedMultiplier = 1f;
 
@@ -47,8 +49,12 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator SpeedBoost(float boostMultiplier, float duration)
     {
         speedMultiplier = boostMultiplier;
+        //color
         Color startColor = gameObject.GetComponent<Renderer>().material.color;
         gameObject.GetComponent<Renderer>().material.color = Color.yellow;
+        //particles
+        GameObject particle = Instantiate(speedParticles, transform);
+        particle.GetComponent<ParticleSystem>().Play();
         yield return new WaitForSeconds(duration);
         speedMultiplier = 1f;
         gameObject.GetComponent<Renderer>().material.color = startColor;

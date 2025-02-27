@@ -3034,7 +3034,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1146249715184350363, guid: 294b5d7221ae3d64e9a94ee1eb4536e8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.96
       objectReference: {fileID: 0}
     - target: {fileID: 1146249715184350363, guid: 294b5d7221ae3d64e9a94ee1eb4536e8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3042,7 +3042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1146249715184350363, guid: 294b5d7221ae3d64e9a94ee1eb4536e8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1.13
       objectReference: {fileID: 0}
     - target: {fileID: 1146249715184350363, guid: 294b5d7221ae3d64e9a94ee1eb4536e8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3072,6 +3072,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2936190598365107378, guid: 294b5d7221ae3d64e9a94ee1eb4536e8, type: 3}
+      propertyPath: speedParticles
+      value: 
+      objectReference: {fileID: 7968472693274519091, guid: 96e0382158171214bbc7981091f57314, type: 3}
     - target: {fileID: 5866950913561472560, guid: 294b5d7221ae3d64e9a94ee1eb4536e8, type: 3}
       propertyPath: m_Name
       value: Player
