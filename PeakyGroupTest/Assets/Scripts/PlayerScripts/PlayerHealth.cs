@@ -19,8 +19,11 @@ public class PlayerHealth : MonoBehaviour
     {
         currHealth -= damage;
         healthbar.SetHealth(currHealth);
-        damageScreen.TriggerFlash();
-        if(currHealth <= 0)
+        if(currHealth > 0)
+        {
+            damageScreen.TriggerFlash();
+        }
+        else
         {
             GameManager.Instance.GameOver();
         }
